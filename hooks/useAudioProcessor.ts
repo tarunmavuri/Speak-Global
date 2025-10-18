@@ -84,8 +84,9 @@ export const useAudioProcessor = ({ onAudioData, onEndOfUtterance }: UseAudioPro
       };
 
       sourceNodeRef.current.connect(scriptProcessorRef.current);
-      // FIX: Do not connect the processor to the destination to avoid audio feedback.
-      // The audio is only being captured, not played back.
+      // Connect the processor to the destination so onaudioprocess fires.
+      // No audio will be played since we do not write to the output buffer.
+      scriptProcessorRef.current.connect(audioContext.destination);
       
       setIsInitialized(true);
     } catch (err) {
