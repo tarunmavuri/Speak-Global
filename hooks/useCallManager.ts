@@ -38,7 +38,7 @@ export const useCallManager = () => {
   const audioProcessor = useAudioProcessor({
     onAudioData: (data) => socketService.sendAudioChunk(data),
     onEndOfUtterance: () => {
-        console.log("Mic released, backend will finalize utterance.");
+      socketService.sendEndOfUtterance();
     },
   });
 
@@ -93,6 +93,7 @@ export const useCallManager = () => {
     selectedLanguage,
     captions,
     error,
+    isProcessing: audioProcessor.isProcessing,
     setSelectedLanguage,
     startCall,
     endCall,

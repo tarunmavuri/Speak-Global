@@ -11,6 +11,7 @@ const App: React.FC = () => {
     selectedLanguage,
     captions,
     error,
+    isProcessing,
     setSelectedLanguage,
     startCall,
     endCall,
@@ -36,6 +37,7 @@ const App: React.FC = () => {
           <CallScreen 
             captions={captions} 
             onEndCall={endCall}
+            isProcessing={isProcessing}
             onStartAudioProcessing={startAudioProcessing}
             onStopAudioProcessing={stopAudioProcessing}
           />
@@ -48,14 +50,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4 font-sans">
+    <div className="min-h-screen bg-gray-100 text-gray-800 flex flex-col items-center justify-center p-4 font-sans">
       <div className="w-full max-w-4xl mx-auto flex flex-col h-full">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-cyan-400">Speak Global</h1>
-          <p className="text-gray-400 mt-2">Real-time multilingual captioning for global conversations.</p>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+            Speak Global
+          </h1>
+          <p className="text-gray-600 mt-2">Real-time multilingual captioning for global conversations.</p>
         </header>
 
-        <main className="flex-grow flex flex-col bg-gray-800 rounded-lg shadow-2xl p-6 min-h-[450px]">
+        <main className="flex-grow flex flex-col bg-white/60 backdrop-blur-md border border-gray-200 rounded-lg shadow-2xl p-6 min-h-[450px]">
           {renderContent()}
         </main>
       </div>
