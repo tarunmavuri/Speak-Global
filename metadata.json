@@ -1,0 +1,7 @@
+{
+  "name": "Speak Global",
+  "description": "A real-time multilingual caption translation application for audio calls, powered by the Google Gemini API. Speak into your microphone and see live transcriptions translated into your chosen language.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
